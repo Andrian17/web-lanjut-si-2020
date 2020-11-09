@@ -5,12 +5,6 @@
 	<link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>">
 </head>
 <body>
-	<!-- <h2>Data Mahasiswa</h2>
-	<p>Nama	:	<?php echo $nama; ?></p>
-	<p>Umur	:	<?php echo $umur; ?></p>
-	<p>Nim	:	<?php echo $nim; ?></p>
-	<p>Jurusan	:	<?php echo $jurusan; ?></p> -->
-
 	<div class="container">
 
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -52,26 +46,23 @@
 						<td>Alamat</td>
 						<td>Aksi</td>
 					</tr>
-					<tr>
-						<td>1</td>
-						<td>Andrian</td>
-						<td>1901050024</td>
-						<td>Jatibaru</td>
+					<?php $no =  1; ?>
+					<?php foreach ($tbl_mahasiswa as $key) { ?>
+
+						<tr>
+						<td><?= $no++ ?></td>
+						<td><?= $key->NIM ?></td>
+						<td><?= $key->nama ?></td>
+						<td><?= $key->alamat ?></td>
 						<td>
 							<button type="button" class="btn btn-warning">Edit</button> 
 							<button type="button" class="btn btn-danger">Delete</button>
 						</td>
 					</tr>
-					<tr>
-						<td>2</td>
-						<td>Ahmad</td>
-						<td>1901050099</td>
-						<td>Rasalewi</td>
-						<td>
-							<button type="button" class="btn btn-warning">Edit</button> 
-							<button type="button" class="btn btn-danger">Delete</button>
-						</td>
-					</tr>
+						
+					<?php } ?>
+					
+					
 				</table>
 
 			</div>
