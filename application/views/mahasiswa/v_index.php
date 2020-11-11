@@ -18,7 +18,7 @@
 						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Tambah Data</a>
+						<a class="nav-link" href="<?php echo site_url('Mahasiswa/tambah') ?>">Tambah Data</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Andrian</a>
@@ -41,8 +41,8 @@
 				<table class="table table-bordered">
 					<tr>
 						<td>Nomor</td>
+						<td>NIM</td>
 						<td>Nama</td>
-						<td>Nim</td>
 						<td>Alamat</td>
 						<td>Aksi</td>
 					</tr>
@@ -50,16 +50,16 @@
 					<?php foreach ($tbl_mahasiswa as $key) { ?>
 
 						<tr>
-						<td><?= $no++ ?></td>
-						<td><?= $key->NIM ?></td>
-						<td><?= $key->nama ?></td>
-						<td><?= $key->alamat ?></td>
-						<td>
-							<button type="button" class="btn btn-warning">Edit</button> 
-							<button type="button" class="btn btn-danger">Delete</button>
-						</td>
-					</tr>
-						
+							<!-- <?= $no++ ?> -->
+							<td><?= $key->ID ?></td>
+							<td><?= $key->NIM ?></td>
+							<td><?= $key->nama ?></td>
+							<td><?= $key->alamat ?></td>
+							<td>
+								<a href="<?php echo site_url('Mahasiswa/viewEdit') ?>" class="btn btn-primary">Edit</a>
+								<a href="" class="btn btn-danger">Delete</a>
+							</td>
+						</tr>
 					<?php } ?>
 					
 					
@@ -82,6 +82,5 @@
 		</div>
 	</div>
 
-	
 </body>
 </html>
