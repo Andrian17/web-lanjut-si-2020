@@ -3,6 +3,11 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>">
+	<script type="text/javascript">
+		function confirmation() {
+			var answer = confirm("Yakin Akan Menghapus Data Ini");
+		}
+	</script>
 </head>
 <body>
 	<div class="container">
@@ -18,10 +23,10 @@
 						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="<?php echo site_url('Mahasiswa/tambah') ?>">Tambah Data</a>
+						<a class="nav-link" href="#">Tambah Data</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Andrian</a>
+						<a class="nav-link disabled" href="#" tabindex="-1">Andrian</a>
 					</li>
 				</ul>
 			</div>
@@ -34,7 +39,8 @@
 
 		<div class="card">
 			<div class="card-header">
-				Data Mahasiswa
+				Data Mahasiswa | 
+				<a href="<?php echo site_url('Mahasiswa/tambah') ?>" class="btn btn-outline-warning">Tambah Data</a>
 			</div>
 			<div class="card-body">
 
@@ -50,14 +56,14 @@
 					<?php foreach ($tbl_mahasiswa as $key) { ?>
 
 						<tr>
-							<!-- <?= $no++ ?> -->
-							<td><?= $key->ID ?></td>
+							
+							<td><?= $no++ ?></td>
 							<td><?= $key->NIM ?></td>
 							<td><?= $key->nama ?></td>
 							<td><?= $key->alamat ?></td>
 							<td>
-								<a href="<?php echo site_url('Mahasiswa/viewEdit') ?>" class="btn btn-primary">Edit</a>
-								<a href="" class="btn btn-danger">Delete</a>
+								<a href="<?php echo site_url('Mahasiswa/edit/'); ?><?php echo $key->ID; ?>" class="btn btn-primary">Edit</a>
+								<a onclick="confirmation()" href="<?php echo site_url('Mahasiswa/delete/'); ?><?php echo $key->ID ?>" class="btn btn-danger">Delete</a>
 							</td>
 						</tr>
 					<?php } ?>
@@ -84,3 +90,4 @@
 
 </body>
 </html>
+

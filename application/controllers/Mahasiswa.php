@@ -30,19 +30,22 @@ class Mahasiswa extends CI_Controller
       'alamat' => $alamat
     ];
     //var_dump($dataInput);
-    $simpan = $this->m_mhs->m_Add($dataInput);
+    $this->m_mhs->m_Add($dataInput);
     redirect('Mahasiswa/index');
-  }
-  public function viewEdit(){
-    $this->load->view('mahasiswa/v_edit');
   }
   public function edit($ID)
   {
-    $data['tbl_mahasiswa'] = $this->m_mhs->getById($ID);
+    $dataInput['tbl_mahasiswa'] = $this->m_mhs->getById($ID);
+    $this->load->view('mahasiswa/v_edit',$dataInput);
   }
 
-  public function update($ID)
+  public function update()
   {
+    $ID = $this->input->post('ID');
+    // $dataInput['NIM'] = $this->input->post('t_nim');
+    // $dataInput['nama'] = $this->input->post('t_nama');
+    // $dataInput['alamat'] = $this->input->post('t_alamat');
+    //$ID = $this->input->post('ID');
     $NIM = $this->input->post('t_nim');
     $nama = $this->input->post('t_nama');
     $alamat = $this->input->post('t_alamat');
@@ -53,13 +56,14 @@ class Mahasiswa extends CI_Controller
       'alamat' => $alamat
     ];
 
+    $this->m_mhs->update($dataInput, $ID);
+    redirect('Mahasiswa');
+  }
 
-
-    $this->m_mhs->update($dataInput,$ID);
-    redirect('siswa');
-    $ID = $this->input->post('ID');
-    $dataInput['tbl_mahasiswa'] = $this->siswa_model->getById($ID);
-    $this->load->view('siswa/edit',$dataInput);
+  public function delete($ID)
+  {
+    $this->m_mhs->delete($ID);
+    redirect('Mahasiswa');
   }
 
 }
