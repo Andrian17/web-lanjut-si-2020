@@ -14,11 +14,11 @@ class m_mhs extends CI_Model
 
 	public function m_Add($dataInput){
 		//insert into value 
-		$this->db->insert($this->table, $dataInput);
+		return $this->db->insert($this->table, $dataInput);
 	}
 	public function getById($ID)
 	{
-		return $this->db->get_where($this->table, ["ID" => $ID])->row();
+		return $this->db->get_where($this->table, ["ID" => $ID])->row_object();
 	}
 
 	public function update($dataInput, $ID)
@@ -27,10 +27,10 @@ class m_mhs extends CI_Model
 		//return $this->db->update($this->table, $data, array('kd_siswa' => $id));
 	}
 
-    public function delete($ID)
-    {
-        return $this->db->delete($this->table, array("ID" => $ID));
-    }
+	public function delete($ID)
+	{
+		return $this->db->delete($this->table, array("ID" => $ID));
+	}
 }
 
 

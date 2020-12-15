@@ -10,14 +10,16 @@ class Mahasiswa extends CI_Controller
 
   public function index(){
 
-    //$data['tbl_mahasiswa'] = $this->db->get('mahasiswa')->result();
-
     $data['tbl_mahasiswa'] = $this->m_mhs->getAll();
+    $this->load->view('Head_Footer/Head');
     $this->load->view('mahasiswa/v_index',$data);
+    $this->load->view('Head_Footer/footer');
 
   }
   public function tambah(){
+    $this->load->view('Head_Footer/Head');
   	$this->load->view('mahasiswa/v_formAdd');
+    $this->load->view('Head_Footer/footer');
   }
   public function proses_tambah(){
     $NIM = $this->input->post('t_nim');
@@ -25,6 +27,7 @@ class Mahasiswa extends CI_Controller
     $alamat = $this->input->post('t_alamat');
 
     $dataInput = [
+      
       'NIM' => $NIM,
       'nama' => $nama,
       'alamat' => $alamat
@@ -36,7 +39,9 @@ class Mahasiswa extends CI_Controller
   public function edit($ID)
   {
     $dataInput['tbl_mahasiswa'] = $this->m_mhs->getById($ID);
+    $this->load->view('Head_Footer/Head');
     $this->load->view('mahasiswa/v_edit',$dataInput);
+    $this->load->view('Head_Footer/footer');
   }
 
   public function update()
