@@ -6,6 +6,9 @@ class Mahasiswa extends CI_Controller
   public function __construct(){
     parent:: __construct();
     $this->load->model('m_mhs');
+    if ( !$this->session->userdata('namaPengguna') ) {
+      redirect('C_login','refresh');
+    }
   }
 
   public function index(){
@@ -47,10 +50,6 @@ class Mahasiswa extends CI_Controller
   public function update()
   {
     $ID = $this->input->post('ID');
-    // $dataInput['NIM'] = $this->input->post('t_nim');
-    // $dataInput['nama'] = $this->input->post('t_nama');
-    // $dataInput['alamat'] = $this->input->post('t_alamat');
-    //$ID = $this->input->post('ID');
     $NIM = $this->input->post('t_nim');
     $nama = $this->input->post('t_nama');
     $alamat = $this->input->post('t_alamat');
@@ -69,6 +68,12 @@ class Mahasiswa extends CI_Controller
   {
     $this->m_mhs->delete($ID);
     redirect('Mahasiswa');
+  }
+
+  public function dTable(){
+    $data['tbl_mahasiswa'] = $this->m_mhs->getAll();
+    $this->load->view('Head_Footer/head');
+    $this->load->view('Mahasiswa/dataTables', $data);
   }
 
 }

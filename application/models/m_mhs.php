@@ -24,7 +24,6 @@ class m_mhs extends CI_Model
 	public function update($dataInput, $ID)
 	{
 		return $this->db->update($this->table, $dataInput, array('ID' => $ID));
-		//return $this->db->update($this->table, $data, array('kd_siswa' => $id));
 	}
 
 	public function delete($ID)

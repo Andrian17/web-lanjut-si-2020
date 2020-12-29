@@ -9,15 +9,15 @@
 		<div class="container">
 			<div class="col-md-6">
 				<div class="form-group">
-					<label>Nim</label>
+					<label class="text-light">Nim</label>
 					<input type="text" name="t_nim" class="form-control" required >
 				</div>
 				<div class="form-group">
-					<label>Nama</label>
+					<label class="text-light">Nama</label>
 					<input type="text" name="t_nama" class="form-control" required >
 				</div>
 				<div class="form-group">
-					<label>Alamat</label>
+					<label class="text-light">Alamat</label>
 					<input type="text" name="t_alamat" class="form-control" required >
 				</div>
 				<input type="submit" name="submit" value="simpan" class="btn btn-primary">
@@ -25,3 +25,4 @@
 			</div>
 		</div>
 	</form>
+	
