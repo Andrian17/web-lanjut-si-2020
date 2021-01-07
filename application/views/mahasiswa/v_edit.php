@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Tambah Data</title>
-	<link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>">
-	
-</head>
-<body class="bd">
+<div class="container ">
 	<form method="post" action="<?php echo site_url('Mahasiswa/update') ?>" >
 		<div class="container">
 			<input type="hidden" name="ID" 
@@ -29,5 +22,4 @@
 			<input type="submit" onclick="confirmation()" name="submit" value="simpan" class="btn btn-primary">
 		</div>
 	</form>
-</body>
-</html>
+</div>

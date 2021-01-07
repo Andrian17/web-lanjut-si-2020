@@ -1,23 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Tambah Data</title>
-	<link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>">
-</head>
-<body>
+<div class="container text-dark mt-4">
+
 	<form action="<?php echo site_url('Mahasiswa/proses_tambah') ?>" method="post">
-		<div class="container">
+		<div class="container text-dark">
 			<div class="col-md-6">
 				<div class="form-group">
-					<label class="text-light">Nim</label>
+					<label>Nim</label>
 					<input type="text" name="t_nim" class="form-control" required >
 				</div>
 				<div class="form-group">
-					<label class="text-light">Nama</label>
+					<label>Nama</label>
 					<input type="text" name="t_nama" class="form-control" required >
 				</div>
 				<div class="form-group">
-					<label class="text-light">Alamat</label>
+					<label>Alamat</label>
 					<input type="text" name="t_alamat" class="form-control" required >
 				</div>
 				<input type="submit" name="submit" value="simpan" class="btn btn-primary">
@@ -25,4 +20,4 @@
 			</div>
 		</div>
 	</form>
-	
+</div>

@@ -35,7 +35,7 @@ $config['base_url'] = 'http://localhost/web-lanjut-si-2020';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
